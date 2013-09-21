@@ -4,7 +4,10 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'json'
 require 'rest-client'
-require 'yahoo-weather'
+require 'forecast_io'
+require 'typhoeus/adapters/faraday'
+
+Faraday.default_adapter = :typhoeus
 
 
 get '/' do
@@ -12,12 +15,13 @@ get '/' do
 end
 
 post '/results' do
-  client = YahooWeather::Client.new
-  # www = params[:city]
-  # ddd = wwww.findwoeid
-  response = client.lookup_by_woeid(12792283)
-  @gamble = response.title
-  @gamble1 = response.condition.text
-  @gamble2 = params[:city]
+  forecast = ForecastIO.forecast(37.8267, -122.423)
+  @gamble = forecast.hourly.summary
   erb :results
 end
+
+
+
+
+
+ForecastIO.api_key = '47b3838c61368a05d35630e2a7b8bfd9'
