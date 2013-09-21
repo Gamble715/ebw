@@ -29,8 +29,9 @@ post '/results' do
   lat = response6['lat']
   lng = response6['lng']
   forecast = ForecastIO.forecast(37.8267, -122.423)
-  @gamble =  forecast
+  @gamble = forecast.hourly.summary
   erb :results
+    
 end
 
 # url = 'http://maps.googleapis.com/maps/api/geocode/json?address=sydney&sensor=false'
