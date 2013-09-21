@@ -20,13 +20,9 @@ post '/results' do
   url = "http://maps.googleapis.com/maps/api/geocode/json?address=#{params[:city]}&sensor=false"
   response = RestClient.get url, :accept => :json
   response2 = JSON.load(response)
-  response3 = response2['results']
-  response4 = response3[0]
-  response5 = response4['geometry']
-  response6 = response5['location']
-  lat = response6['lat']
-  lng = response6['lng']
-  forecast = ForecastIO.forecast(lat, lng)
+  @lat = response2['results'][0]['geometry']['location']['lat']
+  @lng = response2['results'][0]['geometry']['location']['lng']
+  forecast = ForecastIO.forecast(@lat, @lng)
   @currentSummary = forecast.currently.summary
   @currentTemp = forecast.currently.temperature
   @daySummary = forecast.hourly.summary
@@ -38,12 +34,8 @@ post '/map' do
   url = "http://maps.googleapis.com/maps/api/geocode/json?address=#{params[:city]}&sensor=false"
   response = RestClient.get url, :accept => :json
   response2 = JSON.load(response)
-  response3 = response2['results']
-  response4 = response3[0]
-  response5 = response4['geometry']
-  response6 = response5['location']
-  @lat = response6['lat']
-  @lng = response6['lng']
+  @lat = response2['results'][0]['geometry']['location']['lat']
+  @lng = response2['results'][0]['geometry']['location']['lng']
   erb :map
 end
 
