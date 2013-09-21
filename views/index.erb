@@ -1,17 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-	<h1>Type in your city</h1>
-	<form name="location" action="/results" method="post">
-		<input type="text" name="city" placeholder="Input your city"></input> <br>
-		<button>Submit</button>
-	</form>
 
+<div class="row">
+	<div class="large-12 columns">
+		<h1>Where Are You?</h1>
+	</div>
+</div>
 
-	
+<form name="location" action="/results" method="post">
+	<fieldset>
+		<div class="row">
+			<div class="large-4 large-centered columns">
+				<input type="text" name="city" placeholder="Input your city"></input> <br>
+			</div>
+			<div class="large-2 large-centered columns">
+				<button>Submit</button>
+			</div>
 
-</body>
-</html>
+	</fieldset>
+</form>
