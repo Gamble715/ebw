@@ -1,15 +1,18 @@
 
-<div class="row">
-	<div class="large-12 columns">
-		<h3>
-			<p>
-				<%= @currentSummary %><br> 
-		 	 	<%= @currentTemp %><br> 
-		  	<%= @daySummary %><br>
-		  	You Should: <%= @suggestion %>
-		</p>
-		</h3>
+<div class="row" id='weather-results'>
+	<div class="large-4 columns">
+		<h3><%= @currentSummary %></h3>
 	</div>
+	<div class="large-4 columns">
+		<h3><%= @currentTemp %></h3>
+	</div>	 
+	<div class="large-4 columns">
+		<h3><%= @daySummary %></h3>
+	</div>	 	 
+</div>
+
+<div class='row'>
+	<h1>You Should: <%= @suggestion %></h1>
 </div>
 
 
