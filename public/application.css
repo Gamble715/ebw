@@ -1,0 +1,11 @@
+.top-bar {
+	background: rgb(29, 59, 131);
+}
+fieldset {
+	background: rgb(177, 197, 4);
+	border-radius: 20px;
+}
+div {
+	text-align: center;
+}
+
