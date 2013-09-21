@@ -17,8 +17,6 @@ get '/' do
 end
 
 post '/results' do
-  # forecast = ForecastIO.forecast(params[:latitude], params[:longitude])
-  # @gamble =  'http://maps.googleapis.com/maps/api/geocode/json?address=sydney&sensor=false'
   url = "http://maps.googleapis.com/maps/api/geocode/json?address=#{params[:city]}&sensor=false"
   response = RestClient.get url, :accept => :json
   response2 = JSON.load(response)
@@ -28,15 +26,13 @@ post '/results' do
   response6 = response5['location']
   lat = response6['lat']
   lng = response6['lng']
-  forecast = ForecastIO.forecast(37.8267, -122.423)
+  forecast = ForecastIO.forecast(lat, lng)
   @gamble = forecast.hourly.summary
   erb :results
     
 end
 
-# url = 'http://maps.googleapis.com/maps/api/geocode/json?address=sydney&sensor=false'
-# response = RestClient.get url, :accept => :json
-# response = JSON.load(response)
+
 
 
 
