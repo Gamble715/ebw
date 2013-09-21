@@ -2,10 +2,32 @@
 	background: rgb(29, 59, 131);
 }
 fieldset {
-	background: rgb(177, 197, 4);
+	background: rgba(177, 197, 4, .8);
 	border-radius: 20px;
+	height: 500px;
 }
 div {
 	text-align: center;
 }
+i {
+	color: white;
+} 
+#input {
+	margin-top: 150px;
+}
+button {
+	color: rgb(29, 59, 131);
+	margin-top: 100px;
+}
+h1 {
+	color: rgb(29, 59, 131);
+}
+h1 a {
+	}
+footer {
+	position: absolute;
+	bottom: 5px;
+	text-align: center;
+}
+
 
