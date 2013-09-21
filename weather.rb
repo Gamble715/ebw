@@ -26,7 +26,7 @@ post '/results' do
   forecast = ForecastIO.forecast(@lat, @lng)
   weather = Weather.new
   weather.condition = forecast.minutely.icon
-  @dayPrecipitation = weather.what_to_do
+  @suggestion = weather.what_to_do
   @currentSummary = forecast.currently.summary
   @currentTemp = forecast.currently.temperature
   @daySummary = forecast.hourly.summary
