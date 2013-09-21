@@ -13,8 +13,11 @@ end
 
 post '/results' do
   client = YahooWeather::Client.new
-  response = client.lookup_by_woeid(2488892)
+  # www = params[:city]
+  # ddd = wwww.findwoeid
+  response = client.lookup_by_woeid(12792283)
   @gamble = response.title
   @gamble1 = response.condition.text
+  @gamble2 = params[:city]
   erb :results
 end
