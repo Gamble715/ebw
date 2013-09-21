@@ -27,7 +27,10 @@ post '/results' do
   lat = response6['lat']
   lng = response6['lng']
   forecast = ForecastIO.forecast(lat, lng)
-  @gamble = forecast.hourly.summary
+  @currentSummary = forecast.currently.summary
+  @currentTemp = forecast.currently.temperature
+  @daySummary = forecast.hourly.summary
+  @dayPrecipitation = forecast.minutely.icon
   erb :results
     
 end
