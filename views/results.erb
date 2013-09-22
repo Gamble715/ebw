@@ -11,8 +11,14 @@
 	</div>	 	 
 </div>
 
-<div class='row'>
-	<h1>You Should: <%= @suggestion %></h1>
-</div>
+<form name="map" action="/results/map" method="post">
+	<fieldset>
+		<div class="row">
+			<div class="large-6 large-centered columns">
+				<button><%= @suggestion %></button>
+			</div>
+
+	</fieldset>
+</form>
 
 

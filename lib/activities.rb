@@ -1,16 +1,18 @@
 class Weather
     
-    attr_accessor :condition, :activity
+    attr_accessor :condition, :activity, :lat, :lng
 
     def initialize
         @condition = ''
         @activity = 'drink beer'
+        @lat = ''
+        @lng = ''
     end
 
     def what_to_do
       case @condition
       when 'clear-day'  
-        @activity = 'drink beer'
+        @activity = 'Bar'
       when 'clear-night'
         @activity = 'drink beer'
       when 'rain'  

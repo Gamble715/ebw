@@ -13,6 +13,8 @@ require_relative 'lib/activities'
 Faraday.default_adapter = :typhoeus
 ForecastIO.api_key = ENV['KEY']
 
+weather = Weather.new
+
 get '/' do
   erb :index
 end
@@ -21,10 +23,12 @@ post '/results' do
   url = "http://maps.googleapis.com/maps/api/geocode/json?address=#{params[:city]}&sensor=false"
   response = RestClient.get url, :accept => :json
   response2 = JSON.load(response)
-  @lat = response2['results'][0]['geometry']['location']['lat']
-  @lng = response2['results'][0]['geometry']['location']['lng']
-  forecast = ForecastIO.forecast(@lat, @lng)
-  weather = Weather.new
+  
+  weather.lat = response2['results'][0]['geometry']['location']['lat']
+  weather.lng = response2['results'][0]['geometry']['location']['lng']
+  @lat = weather.lat
+  @lng = weather.lng
+  forecast = ForecastIO.forecast(weather.lat, weather.lng)
   weather.condition = forecast.minutely.icon
   @suggestion = weather.what_to_do
   @currentSummary = forecast.currently.summary
@@ -33,12 +37,9 @@ post '/results' do
   erb :results
 end
 
-post '/map' do
-  url = "http://maps.googleapis.com/maps/api/geocode/json?address=#{params[:city]}&sensor=false"
-  response = RestClient.get url, :accept => :json
-  response2 = JSON.load(response)
-  @lat = response2['results'][0]['geometry']['location']['lat']
-  @lng = response2['results'][0]['geometry']['location']['lng']
+post '/results/map' do
+  @lat = weather.lat
+  @lng = weather.lng
   erb :map
 end
 
