@@ -40,11 +40,10 @@ post '/results' do
 end
 
 post '/map' do
-   # url = "https://maps.googleapis.com/maps/api/place/radarsearch/json?location=#{weather.lat},#{weather.lng}&radius=5000&types=bar&sensor=false&key=AIzaSyCaKk1sID5-mNMOgd1HGwJfqk_PNLC6ZZ8"
   #refactor
   @lat = weather.lat
   @lng = weather.lng
-  url1 = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{weather.lat},#{weather.lng}&rankby=distance&types=#{weather.activity[0]}&sensor=false&key=AIzaSyCaKk1sID5-mNMOgd1HGwJfqk_PNLC6ZZ8"
+  url1 = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{weather.lat},#{weather.lng}&rankby=distance&types=#{weather.activity[0]}&sensor=false&key=#{ENV['GKEY']}"
   response = RestClient.get url1, :accept => :json
   response2 = JSON.load(response)
   

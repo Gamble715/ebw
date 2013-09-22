@@ -6,7 +6,7 @@
     function initialize() {
         var map_options = {
             center: new google.maps.LatLng(<%= @lat %>,<%= @lng %>),
-            zoom: 12,
+            zoom: 14,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
 
@@ -30,10 +30,7 @@
           y.push(<%= @lng_array %>[g]);
           h.push(<%= @name_array %>[g]);
         }
-        console.log(h);
-        // <% @name_array.each do |index| %>
-        //   h.push('<p><strong>poop</strong></p>');
-        // <% end %> 
+        
         
 
         // t.push('Title 2');
