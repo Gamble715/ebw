@@ -38,11 +38,13 @@ post '/results' do
 end
 
 post '/results/map' do
-  url = "https://maps.googleapis.com/maps/api/place/radarsearch/json?location=#{weather.lat},#{weather.lng}&radius=5000&types=bar&sensor=false&key=AIzaSyCaKk1sID5-mNMOgd1HGwJfqk_PNLC6ZZ8"
+   # url = "https://maps.googleapis.com/maps/api/place/radarsearch/json?location=#{weather.lat},#{weather.lng}&radius=5000&types=bar&sensor=false&key=AIzaSyCaKk1sID5-mNMOgd1HGwJfqk_PNLC6ZZ8"
+  url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{weather.lat},#{weather.lng}&rankby=distance&types=bar&sensor=false&key=AIzaSyCaKk1sID5-mNMOgd1HGwJfqk_PNLC6ZZ8"
   response = RestClient.get url, :accept => :json
   response2 = JSON.load(response)
-  @lat1 = response2['results'][0]['geometry']['location']['lat']
-  @lng1 = response2['results'][0]['geometry']['location']['lng'] 
+  @test = response2
+  # @lat1 = response2['results'][0]['geometry']['location']['lat']
+  # @lng1 = response2['results'][0]['geometry']['location']['lng'] 
   @lat = weather.lat
   @lng = weather.lng
   erb :map
