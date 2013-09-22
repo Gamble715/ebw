@@ -12,25 +12,25 @@ class Weather
     def what_to_do
       case @condition
       when 'clear-day'  
-        @activity = ['drink beer','movies']
+        @activity = ['bar','movies']
       when 'clear-night'
-        @activity = ['drink beer','movies']
+        @activity = ['bar','movies']
       when 'rain'  
-        @activity = ['drink beer','movies']
+        @activity = ['bar','movies']
       when 'snow'
-        @activity = ['drink beer','movies']
+        @activity = ['bar','movies']
       when 'sleet'  
-        @activity = ['drink beer','movies']
+        @activity = ['bar','movies']
       when 'wind'
-        @activity = ['drink beer','movies']
+        @activity = ['bar','movies']
       when 'fog'  
-        @activity = ['drink beer','movies']
+        @activity = ['bar','movies']
       when 'cloudy'
-        @activity = ['drink beer','movies']
+        @activity = ['bar','movies']
       when 'partly-cloudy-day'  
-        @activity = ['drink beer','movies']
+        @activity = ['bar','movies']
       when 'partly-cloudy-night'
-        @activity = ['drink beer','movies']      
+        @activity = ['bar','movies']      
       else
         @activity ='your lost, so drink some beer'
       end

@@ -41,14 +41,24 @@ end
 
 post '/map' do
    # url = "https://maps.googleapis.com/maps/api/place/radarsearch/json?location=#{weather.lat},#{weather.lng}&radius=5000&types=bar&sensor=false&key=AIzaSyCaKk1sID5-mNMOgd1HGwJfqk_PNLC6ZZ8"
-  url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{weather.lat},#{weather.lng}&rankby=distance&types=bar&sensor=false&key=AIzaSyCaKk1sID5-mNMOgd1HGwJfqk_PNLC6ZZ8"
-  response = RestClient.get url, :accept => :json
-  response2 = JSON.load(response)
-  @test = response2['results'][0]['name']
-  @lat1 = response2['results'][0]['geometry']['location']['lat']
-  @lng1 = response2['results'][0]['geometry']['location']['lng'] 
+  #refactor
   @lat = weather.lat
   @lng = weather.lng
+  url1 = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{weather.lat},#{weather.lng}&rankby=distance&types=#{weather.activity[0]}&sensor=false&key=AIzaSyCaKk1sID5-mNMOgd1HGwJfqk_PNLC6ZZ8"
+  response = RestClient.get url1, :accept => :json
+  response2 = JSON.load(response)
+  @name1 = response2['results'][0]['name']
+  @lat1 = response2['results'][0]['geometry']['location']['lat']
+  @lng1 = response2['results'][0]['geometry']['location']['lng']
+  @name2 = response2['results'][1]['name']
+  @lat2 = response2['results'][1]['geometry']['location']['lat']
+  @lng2 = response2['results'][1]['geometry']['location']['lng']
+  # url2 = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{weather.lat},#{weather.lng}&rankby=distance&types=movies&sensor=false&key=AIzaSyCaKk1sID5-mNMOgd1HGwJfqk_PNLC6ZZ8"
+  # response3 = RestClient.get url2, :accept => :json
+  # response4 = JSON.load(response3)
+  # @name3 = response4['results'][0]
+  # @lat2 = response4['results'][1]['geometry']['location']['lat']
+  # @lng2 = response4['results'][1]['geometry']['location']['lng'] 
   erb :map
 end
 

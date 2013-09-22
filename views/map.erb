@@ -21,15 +21,16 @@
         var y = [];
         var h = [];
 
+        // refactor
         t.push('Title 1');
         x.push(<%= @lat1 %>);
         y.push(<%= @lng1 %>);
-        h.push('<p><strong><%= @test %></strong></p>');
+        h.push('<p><strong><%= @name1 %></strong></p>');
 
-        // t.push('Location Name 2');
-        // x.push(33.846253);
-        // y.push(-84.362125);
-        // h.push('<p><strong>Location Name 2</strong><br/>Address 2</p>');
+        t.push('Title 2');
+        x.push(<%= @lat2 %>);
+        y.push(<%= @lng2 %>);
+        h.push('<p><strong><%= @name2 %></strong></p>');
 
         var i = 0;
         for ( item in t ) {
@@ -53,6 +54,5 @@
 <div id="map_canvas" style="width:1000px;height:600px;">Google Map</div> 
  
  </div> 
-
 
  
