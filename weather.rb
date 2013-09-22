@@ -160,7 +160,7 @@ post "/map/gas_station" do
   erb :map
 end
 
-post "/map/funeral_home" do
+post "/map/restaurant" do
   #refactor
   @lat = weather.lat
   @lng = weather.lng
