@@ -9,6 +9,7 @@
 <form name="location" action="/results" method="post">
 	<fieldset class = 'large-6 large-centered columns'>
 		<div class="row">
+			<div id='error' class='large-12 large-centered'><h4><%= @error %></h4></div>
 			<div id="input" class="large-12 large-centered columns">
 				<input type="text" name="city" placeholder="Input your zipcode"></input> 
 			</div>
@@ -19,3 +20,5 @@
 	</fieldset>
 </form>
 </div>
+
+

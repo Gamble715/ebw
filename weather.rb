@@ -19,7 +19,9 @@ get '/' do
   erb :index
 end
 
+
 post '/results' do
+  # Convert string to URI ruby.. URL safe
   url = "http://maps.googleapis.com/maps/api/geocode/json?address=#{params[:city]}&sensor=false"
   response = RestClient.get url, :accept => :json
   response2 = JSON.load(response)
@@ -28,16 +30,21 @@ post '/results' do
   @lat = weather.lat
   @lng = weather.lng
   forecast = ForecastIO.forecast(weather.lat, weather.lng)
-  weather.condition = forecast.minutely.icon
-  weather.what_to_do
-  # want abilitiy to change number of activities
-  @location_name = response2['results'][0]['address_components'][1]['short_name']
-  @activities = weather.activity[0..5]
-  @currentSummary = forecast.currently.summary
-  @currentTemp = forecast.currently.temperature
-  @daySummary = forecast.hourly.summary
-  # @test = forecast.minutely.icon
-  erb :results
+  if forecast.minutely.nil?
+      @error = "Please enter a valid zipcode."
+      erb :index
+  else
+    weather.condition = forecast.minutely.icon
+    weather.what_to_do
+    # want abilitiy to change number of activities
+    @location_name = response2['results'][0]['address_components'][1]['short_name']
+    @activities = weather.activity[0..5]
+    @currentSummary = forecast.currently.summary
+    @currentTemp = forecast.currently.temperature
+    @daySummary = forecast.hourly.summary
+    # @test = forecast.minutely.icon
+    erb :results
+  end
 end
 
 post "/map/:event" do
