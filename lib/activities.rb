@@ -4,7 +4,7 @@ class Weather
 
     def initialize
         @condition = ''
-        @activity = 'drink beer'
+        @activity = []
         @lat = ''
         @lng = ''
     end
@@ -12,25 +12,25 @@ class Weather
     def what_to_do
       case @condition
       when 'clear-day'  
-        @activity = 'Bar'
+        @activity = ['drink beer','movies']
       when 'clear-night'
-        @activity = 'drink beer'
+        @activity = ['drink beer','movies']
       when 'rain'  
-        @activity = 'drink beer'
+        @activity = ['drink beer','movies']
       when 'snow'
-        @activity = 'drink beer'
+        @activity = ['drink beer','movies']
       when 'sleet'  
-        @activity = 'drink beer'
+        @activity = ['drink beer','movies']
       when 'wind'
-        @activity = 'drink beer'
+        @activity = ['drink beer','movies']
       when 'fog'  
-        @activity = 'drink beer'
+        @activity = ['drink beer','movies']
       when 'cloudy'
-        @activity = 'drink beer'
+        @activity = ['drink beer','movies']
       when 'partly-cloudy-day'  
-        @activity = 'drink beer'
+        @activity = ['drink beer','movies']
       when 'partly-cloudy-night'
-        @activity = 'drink beer'      
+        @activity = ['drink beer','movies']      
       else
         @activity ='your lost, so drink some beer'
       end
