@@ -8,13 +8,13 @@
       #map-canvas { height: 100% }
     </style>
     <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaKk1sID5-mNMOgd1HGwJfqk_PNLC6ZZ8&sensor=false">
+      src="https://maps.googleapis.com/maps/api/js?key=<%ENV['GKEY']%>&sensor=false">
     </script>
     <script type="text/javascript">
       function initialize() {
         var mapOptions = {
           center: new google.maps.LatLng(<%= @lat %>, <%= @lng %>),
-          zoom: 8,
+          zoom: 20,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         var map = new google.maps.Map(document.getElementById("map-canvas"),
