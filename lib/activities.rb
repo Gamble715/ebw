@@ -12,9 +12,9 @@ class Weather
     def what_to_do
       case @condition
       when 'clear-day'  
-        @activity = ['bar','movies']
+        @activity = ['bar','movie_theater']
       when 'clear-night'
-        @activity = ['bar','movies']
+        @activity = ['bar','movie_theater']
       when 'rain'  
         @activity = ['bar','movies']
       when 'snow'
