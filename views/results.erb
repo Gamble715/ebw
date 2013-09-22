@@ -14,16 +14,42 @@
 <form name="map" action="/map" method="post">
 	<fieldset>
 		<div class="row">
-			<div class="large-6 columns">
-				<button><%= @sug1 %></button>
+			<!-- we think we can refactor -->
+			<div class="large-6 small-12 columns">
+				<button class='but'><%= @but1 %></button>
 			</div>
-			<div class="large-6 columns">
-				<button><%= @sug2 %></button>
+			<div class="large-6 small-12 columns">
+				<button class='but'><%= @but2 %></button>
+			</div>
+			<div class="large-6 small-12 columns">
+				<button class='but'><%= @but3 %></button>
+			</div>
+			<div class="large-6 small-12 columns">
+				<button class='but'><%= @but4 %></button>
+			</div>
+			<div class="large-6 small-12 columns">
+				<button class='but'><%= @but5 %></button>
+			</div>
+			<div class="large-6 small-12 columns">
+				<button class='but'><%= @but6 %></button>
 			</div>
 
 	</fieldset>
 </form>
 
-<div><%= @test %></div>
+<script type="text/javascript"> 
+
+	$(document).ready(function() { initialize(); });
+
+    function initialize() {
+    };
+	// $(document).bind("click", "button", function(e){
+ //    	alert($(this).text());
+	// });
+	$('button').click(function (e){
+		alert($(this).text());
+	});
+</script>
+
 
 
