@@ -8,7 +8,7 @@
 
     function initialize() {
         var map_options = {
-            center: new google.maps.LatLng(33.84659,-84.35686),
+            center: new google.maps.LatLng(<%= @lat %>,<%= @lng %>),
             zoom: 14,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
@@ -25,14 +25,14 @@
         var h = [];
 
         t.push('Location Name 1');
-        x.push(33.84659);
-        y.push(-84.35686);
+        x.push(<%= @lat %>);
+        y.push(<%= @lng %>);
         h.push('<p><strong>Location Name 1</strong><br/>Address 1</p>');
 
-        t.push('Location Name 2');
-        x.push(33.846253);
-        y.push(-84.362125);
-        h.push('<p><strong>Location Name 2</strong><br/>Address 2</p>');
+        // t.push('Location Name 2');
+        // x.push(33.846253);
+        // y.push(-84.362125);
+        // h.push('<p><strong>Location Name 2</strong><br/>Address 2</p>');
 
         var i = 0;
         for ( item in t ) {
@@ -52,7 +52,7 @@
         }
     }
 </script> 
-<div id="map_canvas" style="width:400px;height:400px;">Google Map</div> 
+<div id="map_canvas" style="width:800px;height:400px;">Google Map</div> 
   </head>
   <body>
   </body>
