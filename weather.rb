@@ -23,7 +23,6 @@ post '/results' do
   url = "http://maps.googleapis.com/maps/api/geocode/json?address=#{params[:city]}&sensor=false"
   response = RestClient.get url, :accept => :json
   response2 = JSON.load(response)
-  
   weather.lat = response2['results'][0]['geometry']['location']['lat']
   weather.lng = response2['results'][0]['geometry']['location']['lng']
   @lat = weather.lat
@@ -34,10 +33,15 @@ post '/results' do
   @currentSummary = forecast.currently.summary
   @currentTemp = forecast.currently.temperature
   @daySummary = forecast.hourly.summary
+  @test = forecast.minutely.icon
   erb :results
 end
 
 post '/results/map' do
+  url = "https://maps.googleapis.com/maps/api/place/radarsearch/json?location=#{weather.lat},#{weather.lng}&radius=5000&types=bar&sensor=false&key=AIzaSyCaKk1sID5-mNMOgd1HGwJfqk_PNLC6ZZ8"
+  response = RestClient.get url, :accept => :json
+  response2 = JSON.load(response)
+  @test = response2
   @lat = weather.lat
   @lng = weather.lng
   erb :map
