@@ -51,14 +51,24 @@ post "/map/:event" do
   @name_array = []
   @lat_array = []
   @lng_array = []
+  @vicinity_array=[]
+  @rating_array = []
   # can tweek would adjust amount of response - cool to change map size with # of responses 
   (0..6).collect do |index|
     @name = response2['results'][index]['name']
     @lat = response2['results'][index]['geometry']['location']['lat']
     @lng = response2['results'][index]['geometry']['location']['lng']
+    @vic = response2['results'][index]['vicinity']
+    @rating = response2['results'][index]['rating']
     @name_array << @name
     @lat_array << @lat
     @lng_array << @lng
+    @vicinity_array << @vic.split(',')[0]
+    if @rating
+      @rating_array << @rating
+    else
+      @rating_array << 'N/A'
+    end 
   end
 
   erb :map

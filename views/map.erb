@@ -27,7 +27,7 @@
           console.log(g)
           x.push(<%= @lat_array %>[g]);
           y.push(<%= @lng_array %>[g]);
-          h.push(<%= @name_array %>[g]);
+          h.push(<%= @name_array %>[g] + "<br>" + <%= @vicinity_array %>[g] + "<br>" + "Rating: " + <%= @rating_array %>[g]);
         }
 
         var i = 0;
