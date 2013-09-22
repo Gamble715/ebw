@@ -2,7 +2,7 @@
 <div class="row">
 	<fieldset class='large-6 large-centered columns'>
 		<div class="large-6 columns">
-			<h4 class='results'>Your current condition is <%= @currentSummary %>.</h4>
+			<h4 class='results'>It is <%= @currentSummary.downcase %> in <%= @location_name %></h4>
 		</div>
 		<div class="large-6 columns">
 			<h4 class='results'>Temperature<br><%= @currentTemp.to_i %>˚F</h4>
@@ -20,13 +20,12 @@
 		<% @activities.each do |activity| %>
 			<form name="map" action="/map/<%= activity %>" method="post">
 				<div class="row">
-					<button class='but'><%= activity.gsub('_', ' ').capitalize %></button>
+					<button class='but'><%= activity.gsub('_', ' ').split.map(&:capitalize).join(' ') %></button>
 				</div>
 			</form>	
 		<% end %>
 	</fieldset>
 </div>
-
 
 
 

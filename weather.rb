@@ -31,11 +31,12 @@ post '/results' do
   weather.condition = forecast.minutely.icon
   weather.what_to_do
   # want abilitiy to change number of activities
+  @location_name = response2['results'][0]['address_components'][1]['short_name']
   @activities = weather.activity[0..5]
   @currentSummary = forecast.currently.summary
   @currentTemp = forecast.currently.temperature
   @daySummary = forecast.hourly.summary
-  @test = forecast.minutely.icon
+  # @test = forecast.minutely.icon
   erb :results
 end
 
