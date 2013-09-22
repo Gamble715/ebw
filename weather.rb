@@ -31,12 +31,12 @@ post '/results' do
   weather.condition = forecast.minutely.icon
   weather.what_to_do
   # we think we can refactor
-  @but1 = weather.activity[0]
-  @but2 = weather.activity[1]
-  @but3 = weather.activity[2]
-  @but4 = weather.activity[3]
-  @but5 = weather.activity[4]
-  @but6 = weather.activity[5]
+  @but0 = weather.activity[0]
+  @but1 = weather.activity[1]
+  @but2 = weather.activity[2]
+  @but3 = weather.activity[3]
+  @but4 = weather.activity[4]
+  @but5 = weather.activity[5]
   @currentSummary = forecast.currently.summary
   @currentTemp = forecast.currently.temperature
   @daySummary = forecast.hourly.summary
@@ -49,9 +49,8 @@ post "/map/bar" do
   @lat = weather.lat
   @lng = weather.lng
   @url = ''
-  @selection = 'bar'
   (0..5).collect do |i|
-    if weather.activity[i] == @selection
+    if weather.activity[i] == weather.activity[0]
       @url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{weather.lat},#{weather.lng}&rankby=distance&types=#{weather.activity[i]}&sensor=false&key=#{ENV['GKEY']}"
     end
   end
@@ -79,9 +78,8 @@ post "/map/movie_theater" do
   @lat = weather.lat
   @lng = weather.lng
   @url = ''
-  @selection = 'movie_theater'
   (0..5).collect do |i|
-    if weather.activity[i] == @selection
+    if weather.activity[i] == weather.activity[1]
       @url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{weather.lat},#{weather.lng}&rankby=distance&types=#{weather.activity[i]}&sensor=false&key=#{ENV['GKEY']}"
     end
   end
@@ -109,9 +107,8 @@ post "/map/book_store" do
   @lat = weather.lat
   @lng = weather.lng
   @url = ''
-  @selection = 'book_store'
   (0..5).collect do |i|
-    if weather.activity[i] == @selection
+    if weather.activity[i] == weather.activity[2]
       @url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{weather.lat},#{weather.lng}&rankby=distance&types=#{weather.activity[i]}&sensor=false&key=#{ENV['GKEY']}"
     end
   end
@@ -139,9 +136,8 @@ post "/map/gas_station" do
   @lat = weather.lat
   @lng = weather.lng
   @url = ''
-  @selection = 'gas_station'
   (0..5).collect do |i|
-    if weather.activity[i] == @selection
+    if weather.activity[i] == weather.activity[3]
       @url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{weather.lat},#{weather.lng}&rankby=distance&types=#{weather.activity[i]}&sensor=false&key=#{ENV['GKEY']}"
     end
   end
@@ -169,9 +165,8 @@ post "/map/funeral_home" do
   @lat = weather.lat
   @lng = weather.lng
   @url = ''
-  @selection = 'funeral_home'
   (0..5).collect do |i|
-    if weather.activity[i] == @selection
+    if weather.activity[i] == weather.activity[4]
       @url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{weather.lat},#{weather.lng}&rankby=distance&types=#{weather.activity[i]}&sensor=false&key=#{ENV['GKEY']}"
     end
   end
@@ -199,9 +194,8 @@ post "/map/liquor_store" do
   @lat = weather.lat
   @lng = weather.lng
   @url = ''
-  @selection = 'liquor_store'
   (0..5).collect do |i|
-    if weather.activity[i] == @selection
+    if weather.activity[i] == weather.activity[5]
       @url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{weather.lat},#{weather.lng}&rankby=distance&types=#{weather.activity[i]}&sensor=false&key=#{ENV['GKEY']}"
     end
   end

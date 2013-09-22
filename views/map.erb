@@ -21,7 +21,6 @@
         var y = [];
         var h = [];
 
-        // refactor
         
         for (var g=0; g < <%= @lat_array.length %>; g += 1) { 
           t.push('Title');
@@ -30,13 +29,6 @@
           y.push(<%= @lng_array %>[g]);
           h.push(<%= @name_array %>[g]);
         }
-        
-        
-
-        // t.push('Title 2');
-        // x.push(<%= @lat2 %>);
-        // y.push(<%= @lng2 %>);
-        // h.push('<p><strong><%= @name2 %></strong></p>');
 
         var i = 0;
         for ( item in x ) {
