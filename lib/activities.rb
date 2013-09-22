@@ -1,12 +1,13 @@
 class Weather
     
-    attr_accessor :condition, :activity, :lat, :lng
+    attr_accessor :condition, :activity, :lat, :lng, :selection
 
     def initialize
         @condition = ''
         @activity = []
         @lat = ''
         @lng = ''
+        @selection = ''
     end
 
     def what_to_do
@@ -34,5 +35,9 @@ class Weather
       else
         @activity ='your lost, so drink some beer'
       end
+    end
+
+    def current_activity(i)
+      @activity[i]
     end
 end

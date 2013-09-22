@@ -49,8 +49,10 @@ post '/map' do
   @lat = weather.lat
   @lng = weather.lng
   @url = ''
+  @test = weather.current_activity(2)
+  @selection = 'bar'
   (0..5).collect do |i|
-    if weather.activity[i] == 'bar'
+    if weather.activity[i] == @selection
       @url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{weather.lat},#{weather.lng}&rankby=distance&types=#{weather.activity[i]}&sensor=false&key=#{ENV['GKEY']}"
     end
   end
@@ -71,16 +73,6 @@ post '/map' do
   end
 
   erb :map
-  # @name2 = response2['results'][1]['name']
-  # @lat2 = response2['results'][1]['geometry']['location']['lat']
-  # @lng2 = response2['results'][1]['geometry']['location']['lng']
-  # url2 = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{weather.lat},#{weather.lng}&rankby=distance&types=movies&sensor=false&key=AIzaSyCaKk1sID5-mNMOgd1HGwJfqk_PNLC6ZZ8"
-  # response3 = RestClient.get url2, :accept => :json
-  # response4 = JSON.load(response3)
-  # @name3 = response4['results'][0]
-  # @lat2 = response4['results'][1]['geometry']['location']['lat']
-  # @lng2 = response4['results'][1]['geometry']['location']['lng'] 
- 
 end
 
 
