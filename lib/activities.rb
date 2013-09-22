@@ -13,27 +13,27 @@ class Weather
     def what_to_do
       case @condition
       when 'clear-day'  
-        @activity = ['bar','amusement_park', 'movie_theater']
+        @activity = ['bar','movie_theater', 'book_store', 'gas_station', 'funeral_home', 'liquor_store']
       when 'clear-night'
-        @activity = ['bar','movie_theater', 'book_store', 'bowling_alley', 'funeral_home', 'liquor_store']
+        @activity = ['bar','movie_theater', 'book_store', 'gas_station', 'funeral_home', 'liquor_store']
       when 'rain'  
-        @activity = ['bar','movies']
+        @activity = ['bar','movie_theater', 'book_store', 'gas_station', 'funeral_home', 'liquor_store']
       when 'snow'
-        @activity = ['bar','movies']
+        @activity = ['bar','movie_theater', 'book_store', 'gas_station', 'funeral_home', 'liquor_store']
       when 'sleet'  
-        @activity = ['bar','movies']
+        @activity = ['bar','movie_theater', 'book_store', 'gas_station', 'funeral_home', 'liquor_store']
       when 'wind'
-        @activity = ['bar','movies']
+        @activity = ['bar','movie_theater', 'book_store', 'gas_station', 'funeral_home', 'liquor_store']
       when 'fog'  
-        @activity = ['bar','movies']
+        @activity = ['bar','movie_theater', 'book_store', 'gas_station', 'funeral_home', 'liquor_store']
       when 'cloudy'
-        @activity = ['bar','movies']
+        @activity = ['bar','movie_theater', 'book_store', 'gas_station', 'funeral_home', 'liquor_store']
       when 'partly-cloudy-day'  
-        @activity = ['bar','movies']
+        @activity = ['bar','movie_theater', 'book_store', 'gas_station', 'funeral_home', 'liquor_store']
       when 'partly-cloudy-night'
-        @activity = ['bar','movies']      
+        @activity = ['bar','movie_theater', 'book_store', 'casino', 'funeral_home', 'liquor_store']   
       else
-        @activity ='your lost, so drink some beer'
+        @activity = ['bar','movie_theater', 'book_store', 'gas_station', 'funeral_home', 'liquor_store']
       end
     end
 

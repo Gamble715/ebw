@@ -43,13 +43,12 @@ post '/results' do
   @test = forecast.minutely.icon
   erb :results
 end
-
-post '/map' do
+#want post "/map/#{weather.activity[0]}"
+post "/map/bar" do
   #refactor
   @lat = weather.lat
   @lng = weather.lng
   @url = ''
-  @test = weather.current_activity(2)
   @selection = 'bar'
   (0..5).collect do |i|
     if weather.activity[i] == @selection
@@ -75,6 +74,155 @@ post '/map' do
   erb :map
 end
 
+post "/map/movie_theater" do
+  #refactor
+  @lat = weather.lat
+  @lng = weather.lng
+  @url = ''
+  @selection = 'movie_theater'
+  (0..5).collect do |i|
+    if weather.activity[i] == @selection
+      @url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{weather.lat},#{weather.lng}&rankby=distance&types=#{weather.activity[i]}&sensor=false&key=#{ENV['GKEY']}"
+    end
+  end
+  response = RestClient.get @url, :accept => :json
+  response2 = JSON.load(response)
+  
+  @name_array = []
+  @lat_array = []
+  @lng_array = []
+  # can tweek would adjust amount of response - cool to change map size with # of responses 
+  (0..6).collect do |index|
+    @name = response2['results'][index]['name']
+    @lat = response2['results'][index]['geometry']['location']['lat']
+    @lng = response2['results'][index]['geometry']['location']['lng']
+    @name_array << @name
+    @lat_array << @lat
+    @lng_array << @lng
+  end
+
+  erb :map
+end
+
+post "/map/book_store" do
+  #refactor
+  @lat = weather.lat
+  @lng = weather.lng
+  @url = ''
+  @selection = 'book_store'
+  (0..5).collect do |i|
+    if weather.activity[i] == @selection
+      @url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{weather.lat},#{weather.lng}&rankby=distance&types=#{weather.activity[i]}&sensor=false&key=#{ENV['GKEY']}"
+    end
+  end
+  response = RestClient.get @url, :accept => :json
+  response2 = JSON.load(response)
+  
+  @name_array = []
+  @lat_array = []
+  @lng_array = []
+  # can tweek would adjust amount of response - cool to change map size with # of responses 
+  (0..6).collect do |index|
+    @name = response2['results'][index]['name']
+    @lat = response2['results'][index]['geometry']['location']['lat']
+    @lng = response2['results'][index]['geometry']['location']['lng']
+    @name_array << @name
+    @lat_array << @lat
+    @lng_array << @lng
+  end
+
+  erb :map
+end
+
+post "/map/gas_station" do 
+  #refactor
+  @lat = weather.lat
+  @lng = weather.lng
+  @url = ''
+  @selection = 'gas_station'
+  (0..5).collect do |i|
+    if weather.activity[i] == @selection
+      @url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{weather.lat},#{weather.lng}&rankby=distance&types=#{weather.activity[i]}&sensor=false&key=#{ENV['GKEY']}"
+    end
+  end
+  response = RestClient.get @url, :accept => :json
+  response2 = JSON.load(response)
+  
+  @name_array = []
+  @lat_array = []
+  @lng_array = []
+  # can tweek would adjust amount of response - cool to change map size with # of responses 
+  (0..6).collect do |index|
+    @name = response2['results'][index]['name']
+    @lat = response2['results'][index]['geometry']['location']['lat']
+    @lng = response2['results'][index]['geometry']['location']['lng']
+    @name_array << @name
+    @lat_array << @lat
+    @lng_array << @lng
+  end
+
+  erb :map
+end
+
+post "/map/funeral_home" do
+  #refactor
+  @lat = weather.lat
+  @lng = weather.lng
+  @url = ''
+  @selection = 'funeral_home'
+  (0..5).collect do |i|
+    if weather.activity[i] == @selection
+      @url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{weather.lat},#{weather.lng}&rankby=distance&types=#{weather.activity[i]}&sensor=false&key=#{ENV['GKEY']}"
+    end
+  end
+  response = RestClient.get @url, :accept => :json
+  response2 = JSON.load(response)
+  
+  @name_array = []
+  @lat_array = []
+  @lng_array = []
+  # can tweek would adjust amount of response - cool to change map size with # of responses 
+  (0..6).collect do |index|
+    @name = response2['results'][index]['name']
+    @lat = response2['results'][index]['geometry']['location']['lat']
+    @lng = response2['results'][index]['geometry']['location']['lng']
+    @name_array << @name
+    @lat_array << @lat
+    @lng_array << @lng
+  end
+
+  erb :map
+end
+
+post "/map/liquor_store" do
+  #refactor
+  @lat = weather.lat
+  @lng = weather.lng
+  @url = ''
+  @selection = 'liquor_store'
+  (0..5).collect do |i|
+    if weather.activity[i] == @selection
+      @url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{weather.lat},#{weather.lng}&rankby=distance&types=#{weather.activity[i]}&sensor=false&key=#{ENV['GKEY']}"
+    end
+  end
+  response = RestClient.get @url, :accept => :json
+  response2 = JSON.load(response)
+  
+  @name_array = []
+  @lat_array = []
+  @lng_array = []
+  # can tweek would adjust amount of response - cool to change map size with # of responses 
+  (0..6).collect do |index|
+    @name = response2['results'][index]['name']
+    @lat = response2['results'][index]['geometry']['location']['lat']
+    @lng = response2['results'][index]['geometry']['location']['lng']
+    @name_array << @name
+    @lat_array << @lat
+    @lng_array << @lng
+  end
+
+  erb :map
+end
 
 
 
