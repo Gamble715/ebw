@@ -16,70 +16,17 @@
 <div class='row'>
 	<fieldset class='large-6 large-centered columns'>
 		<h2 class='activities'>Activities</h2>
-		<form name="map" action="/map/<%= @but0 %>" method="post">
-			<div class="row">
-				<button class='but'><%= @but0 %></button>
-			</div>
-		</form>	
-		<form name="map" action="/map/<%= @but1 %>" method="post">
-			<div class="row">
-				<button class='but'><%= @but1 %></button>
-			</div>
-		</form>	
-		<form name="map" action="/map/<%= @but2 %>" method="post">
-			<div class="row">
-				<button class='but'><%= @but2 %></button>
-			</div>
-		</form>	
-		<form name="map" action="/map/<%= @but3 %>" method="post">
-			<div class="row">
-				<button class='but'><%= @but3 %></button>
-			</div>
-		</form>	
-		<form name="map" action="/map/<%= @but4 %>" method="post">
-			<div class="row">
-				<button class='but'><%= @but4 %></button>
-			</div>
-		</form>	
-		<form name="map" action="/map/<%= @but5 %>" method="post">
-			<div class="row">
-				<button class='but'><%= @but5 %></button>
-			</div>
-		</form>
+
+		<% @activities.each do |activity| %>
+			<form name="map" action="/map/<%= activity %>" method="post">
+				<div class="row">
+					<button class='but'><%= activity.gsub('_', ' ').capitalize %></button>
+				</div>
+			</form>	
+		<% end %>
 	</fieldset>
 </div>
-		<!-- how it was before all in one form -->
-			<!-- <div class="large-6 small-12 columns">
-				<button class='but'><%= @but2 %></button>
-			</div>
-			<div class="large-6 small-12 columns">
-				<button class='but'><%= @but3 %></button>
-			</div>
-			<div class="large-6 small-12 columns">
-				<button class='but'><%= @but4 %></button>
-			</div>
-			<div class="large-6 small-12 columns">
-				<button class='but'><%= @but5 %></button>
-			</div>
-			<div class="large-6 small-12 columns">
-				<button class='but'><%= @but6 %></button>
-			</div>
- -->	
 
 
-<!-- <div class ='row'>
-	<script type="text/javascript"> 
-
-		$(document).ready(function() { initialize(); });
-
-	    function initialize() {
-	    };
-
-		$('button').click(function (e){
-			alert(<%= @but6 %>);
-			//  ($(this).text());
-		});
-	</script>
-</div> -->
 
 
