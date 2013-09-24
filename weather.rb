@@ -25,14 +25,6 @@ end
 
 
 post '/results' do
-  # Convert string to URI ruby.. URL safe
-  # url = "http://maps.googleapis.com/maps/api/geocode/json?address=#{params[:city]}&sensor=false"
-  # response = RestClient.get url, :accept => :json
-  # response2 = JSON.load(response)
-
-  # weather.lat = response2['results'][0]['geometry']['location']['lat']
-  # weather.lng = response2['results'][0]['geometry']['location']['lng']
-
   url = "http://maps.googleapis.com/maps/api/geocode/json?latlng=#{params[:latitude]},#{params[:longitude]}&sensor=false"
   response = RestClient.get url, :accept => :json
   response2 = JSON.load(response)
@@ -71,8 +63,7 @@ post '/results/zipcode' do
 
   forecast = ForecastIO.forecast(weather.lat, weather.lng)
   if forecast.minutely.nil?
-      @error = "Please enter a valid zipcode."
-      erb :zipcode
+    erb :zipcode
   else
     weather.condition = forecast.minutely.icon
     weather.what_to_do

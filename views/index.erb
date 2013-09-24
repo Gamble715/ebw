@@ -21,7 +21,7 @@
 <script type='text/javascript'>
 	$(function() {
 		// $('#geolocate-button').click(function() {
-		  if (navigator.geolocation === false) {
+		  if (navigator.geolocation) {
 		    navigator.geolocation.getCurrentPosition(function(position) {
 		    	$('#longitude').val(position.coords.longitude);
 		    	$('#latitude').val(position.coords.latitude);
