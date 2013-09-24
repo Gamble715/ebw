@@ -6,12 +6,14 @@
 </div>
 
 <div class = "row">
-<form name="location" action="/results" method="post">
+<form name="location" action="/results" method="post" id="geolocate">
 	<fieldset class = 'large-6 large-centered columns'>
 		<div class="row">
 			<div id='error' class='large-12 large-centered'><h4><%= @error %></h4></div>
 			<div id="input" class="large-12 large-centered columns">
-				<input type="text" name="city" placeholder="Input your zipcode"></input> 
+				<input type="text" name="city" placeholder="Input your zipcode"></input>
+				<input type="hidden" name="longitude" id="longitude"></input>
+				<input type="hidden" name="latitude" id="latitude"></input>
 			</div>
 			<div class="large-12 large-centered columns">
 				<button>What's Your Weather?</button>
@@ -21,4 +23,25 @@
 </form>
 </div>
 
+<div class = 'row'>
+	<p id="geolocate-info">Click the button to get your coordinates:</p>
+	<button id='geolocate-button'>Try It</button>
+</div>
 
+<script type='text/javascript'>
+	$(function() {
+		$('#geolocate-button').click(function() {
+		  if (navigator.geolocation) {
+		    navigator.geolocation.getCurrentPosition(function(position) {
+		    	$('#longitude').val(position.coords.longitude);
+		    	$('#latitude').val(position.coords.latitude);
+
+		    	$('#geolocate').submit();
+		    });
+		  }
+		  else{
+		  	$("#geolocate-info").html("Geolocation is not supported by this browser.");
+		  }
+		});
+	});
+</script>
