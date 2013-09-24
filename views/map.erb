@@ -1,57 +1,56 @@
 <div class="row" >
-<script type="text/javascript"> 
+  <script type="text/javascript"> 
 
-    $(document).ready(function() { initialize(); });
+      $(document).ready(function() { initialize(); });
 
-    function initialize() {
-        var map_options = {
-            center: new google.maps.LatLng(<%= @lat %>,<%= @lng %>),
-            zoom: 14,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
+      function initialize() {
+          var map_options = {
+              center: new google.maps.LatLng(<%= @lat %>,<%= @lng %>),
+              zoom: 14,
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+          };
 
-        var google_map = new google.maps.Map(document.getElementById("map_canvas"), map_options);
+          var google_map = new google.maps.Map(document.getElementById("map_canvas"), map_options);
 
-        var info_window = new google.maps.InfoWindow({
-            content: 'loading'
-        });
+          var info_window = new google.maps.InfoWindow({
+              content: 'loading'
+          });
 
-        var t = [];
-        var x = [];
-        var y = [];
-        var h = [];
+          var t = [];
+          var x = [];
+          var y = [];
+          var h = [];
 
-        
-        for (var g=0; g < <%= @lat_array.length %>; g += 1) { 
-          t.push('Title');
-          console.log(g)
-          x.push(<%= @lat_array %>[g]);
-          y.push(<%= @lng_array %>[g]);
-          h.push(<%= @name_array %>[g] + "<br>" + <%= @vicinity_array %>[g] + "<br>" + "Rating: " + <%= @rating_array %>[g]);
-        }
+          
+          for (var g=0; g < <%= @lat_array.length %>; g += 1) { 
+            t.push('Title');
+            console.log(g)
+            x.push(<%= @lat_array %>[g]);
+            y.push(<%= @lng_array %>[g]);
+            h.push(<%= @name_array %>[g] + "<br>" + <%= @vicinity_array %>[g] + "<br>" + "Rating: " + <%= @rating_array %>[g]);
+          }
 
-        var i = 0;
-        for ( item in x ) {
-            var m = new google.maps.Marker({
-                map:       google_map,
-                animation: google.maps.Animation.DROP,
-                title:     t[i],
-                position:  new google.maps.LatLng(x[i],y[i]),
-                html:      h[i]
-            });
+          var i = 0;
+          for ( item in x ) {
+              var m = new google.maps.Marker({
+                  map:       google_map,
+                  animation: google.maps.Animation.DROP,
+                  title:     t[i],
+                  position:  new google.maps.LatLng(x[i],y[i]),
+                  html:      h[i]
+              });
 
-            google.maps.event.addListener(m, 'click', function() {
-                info_window.setContent(this.html);
-                info_window.open(google_map, this);
-            });
-            i++;
-        }
-    }
-</script> 
+              google.maps.event.addListener(m, 'click', function() {
+                  info_window.setContent(this.html);
+                  info_window.open(google_map, this);
+              });
+              i++;
+          }
+      }
+  </script> 
 
-<div id="map_canvas" style="width:1000px;height:600px;">Google Map</div> 
- 
- </div> 
+  <div id="map_canvas" style="width:1000px;height:600px;">Google Map</div>  
+</div> 
 
 
 
