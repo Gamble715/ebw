@@ -2,97 +2,41 @@
 
 class Weather
     
-    attr_accessor :condition, :activity, :lat, :lng, :selection
+    attr_accessor :condition, :activity, :lat, :lng, :activities
 
     def initialize
         @condition = ''
-        @activity = %w(accounting airport amusement_park aquarium art_gallery
-                        atm
-                        bakery
-                        bank
-                        bar
-                        beauty_salon
-                        bicycle_store
-                        book_store
-                        bowling_alley
-                        bus_station
-                        cafe
-                        campground
-                        car_dealer
-                        car_rental
-                        car_repair
-                        car_wash
-                        casino
-                        cemetery
-                        church
-                        city_hall
-                        clothing_store
-                        convenience_store
-                        courthouse
-                        dentist
-                        department_store
-                        doctor
-                        electrician
-                        electronics_store
-                        embassy
-                        establishment
-                        finance
-                        fire_station
-                        florist
-                        food
-                        funeral_home
-                        furniture_store
-                        gas_station
-                        general_contractor
-                        grocery_or_supermarket
-                        gym
-                        hair_care
-                        hardware_store
-                        health
-                        hindu_temple
-                        home_goods_store
-                        hospital
-                        insurance_agency
-                        jewelry_store
-                        laundry
-                        lawyer
-                        library
-                        liquor_store
-                        local_government_office
-                        locksmith
-                        lodging
-                        meal_delivery
-                        meal_takeaway
-                        mosque
-                        movie_rental
-                        movie_theater
-                        moving_company
-                        museum
-                        night_club
-                        painter
-                        park
-                        parking
-                        pet_store
-                        pharmacy
-                        physiotherapist
-                        place_of_worship
-                        plumber
-                        police
-                        post_office
-                        real_estate_agency
-                        restaurant
-                        roofing_contractor
-                        rv_park
-                        school
-                        shoe_store
-                        shopping_mall
-                        spa
-                        stadium
-                        storage
-                        store
-                        subway_station
-                        synagogue
-                        taxi_stand train_station travel_agency university veterinary_care zoo)
+        @activities = [
+                         [],# ['accounting', 'airport', 'atm', 'bank', 'bus_station', 'car_dealer', 'car_rental', 'car_repair', car_wash,cemetery, church, city_hall, courthouse, dentist, doctor, electrician, embassy, establishment, finance, fire_station, funeral_home, furniture_store, gas_station, general_contractor, grocery_or_supermarket, hair_care, hardware_store, health, hindu_temple, hospital, insurance_agency, laundry, lawyer, local_government_office, locksmith, lodgings, mosque, moving_company, painter, pharmacy, physiotherapist, place_of_worship, plumber, police, post_office, real_estate_agency, parking, roofing_contractor, rv_park, school, storage, subway_station, synagogue, taxi_stand, train_station, travel_agency, university, veterinary_care],
+                         ['bar', 'zoo', 'park', 'amusement_park', 'restaurant', 'campground'],
+                         ['bar', 'night_club', 'campground', 'casino', 'restaurant', 'liquor_store'],
+                         ['bar', 'movie_theater', 'book_store', 'spa', 'bowling_alley', 'liquor_store'],
+                         ['bar', 'movie_theater', 'home_goods_store', 'shopping_mall', 'meal_delivery', 'liquor_store'],
+                         ['bar', 'movie_theater', 'book_store', 'meal_delivery', 'museum', 'liquor_store'],
+                         ['bar', 'department_store', 'library', 'meal_takeaway', 'restaurant', 'beauty_salon'],
+                         ['bar', 'movie_theater', 'book_store', 'gym', 'aquarium', 'liquor_store'],
+                         ['bar', 'movie_theater', 'book_store', 'bakery', 'art_gallery', 'shopping_mall'],
+                         ['bar', 'movie_theater', 'zoo', 'meal_takeaway', 'spa', 'liquor_store'],
+                         ['bar', 'night_club', 'movie_theater', 'casino', 'restaurant', 'liquor_store']
+                     ] 
+                        # amusement_park 
+                        # bakery
+                        # bar
+                        # bicycle_store
+                        # book_store
+                        # cafe
+                        # campground
+                        # clothing_store
+                        # convenience_store
+                        # electronics_store
+                        # florist
+                        # food
+                        # jewelry_store
+                        # pet_store
+                        # restaurant
+                        # shoe_store
+                        # stadium
+                        # store
         @lat = ''
         @lng = ''
         @selection = ''
@@ -101,27 +45,27 @@ class Weather
     def what_to_do
       case @condition
       when 'clear-day'  
-        @activity = ['bar','movie_theater', 'book_store', 'gas_station', 'restaurant', 'liquor_store']
+        @activity = activities[1]
       when 'clear-night'
-        @activity = ['bar','movie_theater', 'book_store', 'gas_station', 'restaurant', 'liquor_store']
+        @activity = activities[2]
       when 'rain'  
-        @activity = ['bar','movie_theater', 'book_store', 'gas_station', 'restaurant', 'liquor_store']
+        @activity = activities[3]
       when 'snow'
-        @activity = ['bar','movie_theater', 'book_store', 'gas_station', 'restaurant', 'liquor_store']
+        @activity = activities[4]
       when 'sleet'  
-        @activity = ['bar','movie_theater', 'book_store', 'gas_station', 'restaurant', 'liquor_store']
+        @activity = activities[5]
       when 'wind'
-        @activity = ['bar','movie_theater', 'book_store', 'gas_station', 'restaurant', 'liquor_store']
+        @activity = activities[6]
       when 'fog'  
-        @activity = ['bar','movie_theater', 'book_store', 'gas_station', 'restaurant', 'liquor_store']
+        @activity = activities[7]
       when 'cloudy'
-        @activity = ['bar','movie_theater', 'book_store', 'gas_station', 'restaurant', 'liquor_store']
+        @activity = activities[8]
       when 'partly-cloudy-day'  
-        @activity = ['bar','movie_theater', 'book_store', 'gas_station', 'restaurant', 'liquor_store']
+        @activity = activities[9]
       when 'partly-cloudy-night'
-        @activity = ['bar','movie_theater', 'book_store', 'casino', 'restaurant', 'liquor_store']   
+        @activity = activities[10]
       else
-        @activity = ['bar','movie_theater', 'book_store', 'gas_station', 'restaurant', 'liquor_store']
+        @activity = activities[0]
       end
     end
 
