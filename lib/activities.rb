@@ -8,16 +8,16 @@ class Weather
         @condition = ''
         @activities = [
                          [],# ['accounting', 'airport', 'atm', 'bank', 'bus_station', 'car_dealer', 'car_rental', 'car_repair', car_wash,cemetery, church, city_hall, courthouse, dentist, doctor, electrician, embassy, establishment, finance, fire_station, funeral_home, furniture_store, gas_station, general_contractor, grocery_or_supermarket, hair_care, hardware_store, health, hindu_temple, hospital, insurance_agency, laundry, lawyer, local_government_office, locksmith, lodgings, mosque, moving_company, painter, pharmacy, physiotherapist, place_of_worship, plumber, police, post_office, real_estate_agency, parking, roofing_contractor, rv_park, school, storage, subway_station, synagogue, taxi_stand, train_station, travel_agency, university, veterinary_care],
-                         ['bar', 'zoo', 'park', 'amusement_park', 'restaurant', 'campground'],
-                         ['bar', 'night_club', 'campground', 'casino', 'restaurant', 'liquor_store'],
-                         ['bar', 'movie_theater', 'book_store', 'spa', 'bowling_alley', 'liquor_store'],
+                         ['bar', 'cafe', 'park', 'amusement_park', 'restaurant', 'bicycle_store'],
+                         ['bar', 'night_club', 'bicycle_store', 'movie_theater', 'restaurant', 'liquor_store'],
+                         ['bar', 'movie_theater', 'book_store', 'spa', 'shopping_mall', 'liquor_store'],
                          ['bar', 'movie_theater', 'home_goods_store', 'shopping_mall', 'meal_delivery', 'liquor_store'],
                          ['bar', 'movie_theater', 'book_store', 'meal_delivery', 'museum', 'liquor_store'],
                          ['bar', 'department_store', 'library', 'meal_takeaway', 'restaurant', 'beauty_salon'],
-                         ['bar', 'movie_theater', 'book_store', 'gym', 'aquarium', 'liquor_store'],
+                         ['bar', 'movie_theater', 'book_store', 'gym', 'clothing_store', 'liquor_store'],
                          ['bar', 'movie_theater', 'book_store', 'bakery', 'art_gallery', 'shopping_mall'],
-                         ['bar', 'movie_theater', 'zoo', 'meal_takeaway', 'spa', 'liquor_store'],
-                         ['bar', 'night_club', 'movie_theater', 'casino', 'restaurant', 'liquor_store']
+                         ['bar', 'movie_theater', 'cafe', 'meal_takeaway', 'spa', 'liquor_store'],
+                         ['bar', 'night_club', 'movie_theater', 'meal_delivery', 'restaurant', 'liquor_store']
                      ] 
                         # amusement_park 
                         # bakery
