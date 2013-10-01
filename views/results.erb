@@ -1,9 +1,19 @@
 <div class="row">
-	<fieldset class='large-6 large-centered columns'>
-		<div class="large-6 columns">
+	<fieldset class='large-6 large-centered columns topper'>
+
+		
+        <div class="large-3 columns">
+			<h4 class='results'>
+				<figure class="icons">
+					<canvas id="<%= "#{@condition}" %>" width="64" height="64">
+					</canvas>
+				</figure>
+			</h4>
+		</div>
+		<div class="large-4 columns">
 			<h4 class='results'>It is <%= @currentSummary.downcase %> in <%= @location_name %></h4>
 		</div>
-		<div class="large-6 columns">
+		<div class="large-5 columns">
 			<h4 class='results'>Temperature<br><%= @currentTemp.to_i %>˚F</h4>
 		</div>
 		<!-- <div class="large-12 large-centered columns">
@@ -13,7 +23,7 @@
 </div>
 
 <div class='row'>
-	<fieldset class='large-6 large-centered columns'>
+	<fieldset class='large-6 large-centered columns botter'>
 		<h2 class='activities'>Activities</h2>
 
 		<% @activities.each do |activity| %>
@@ -27,4 +37,15 @@
 </div>
 
 
+<script src="/skycons.js"></script>
+<script>
+$(document).ready(function() {
+	var icons = new Skycons();
 
+			
+		icons.set("<%= @icon_to_do[:norm] %>", Skycons.<%= @icon_to_do[:up] %>);
+
+	icons.play();
+});
+	
+</script>

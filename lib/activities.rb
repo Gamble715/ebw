@@ -2,7 +2,7 @@
 
 class Weather
     
-    attr_accessor :condition, :activity, :lat, :lng, :activities
+    attr_accessor :condition, :activity, :lat, :lng, :activities, :canvas, :canvas_up
 
     def initialize
         @condition = ''
@@ -37,6 +37,7 @@ class Weather
                         # shoe_store
                         # stadium
                         # store
+        @icons
         @lat = ''
         @lng = ''
         @selection = ''
@@ -66,6 +67,32 @@ class Weather
         @activity = activities[10]
       else
         @activity = activities[0]
+      end
+    end
+
+    def icon_to_do(condition)
+      # condition = 'rain'
+      case condition 
+      when 'clear-day'  
+        @canvas = {norm: 'clear-day', up: 'clear-day'.split('-').join('_').upcase } 
+      when 'clear-night'
+        @canvas = {norm: 'clear-night', up: 'clear-night'.split('-').join('_').upcase } 
+      when 'rain'  
+        @canvas = {norm: 'rain', up: 'rain'.split('-').join('_').upcase } 
+      when 'snow'
+        @canvas = {norm: 'snow', up: 'snow'.split('-').join('_').upcase } 
+      when 'sleet'  
+        @canvas = {norm: 'sleet', up: 'sleet'.split('-').join('_').upcase } 
+      when 'wind'
+        @canvas = {norm: 'wind', up: 'wind'.split('-').join('_').upcase } 
+      when 'fog'  
+        @canvas = {norm: 'fog', up: 'fog'.split('-').join('_').upcase } 
+      when 'cloudy'
+        @canvas = {norm: 'cloudy', up: 'cloudy'.split('-').join('_').upcase } 
+      when 'partly-cloudy-day'  
+        @canvas = {norm: 'partly-cloudy-day', up: 'partly-cloudy-day'.split('-').join('_').upcase } 
+      when 'partly-cloudy-night'
+        @canvas = {norm: 'partly-cloudy-night', up: 'partly-cloudy-night'.split('-').join('_').upcase } 
       end
     end
 
