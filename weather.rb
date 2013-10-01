@@ -37,6 +37,7 @@ post '/results' do
 
   forecast = ForecastIO.forecast(weather.lat, weather.lng)
   weather.condition = forecast.minutely.icon
+  
   weather.what_to_do
   # want abilitiy to change number of activities
   @location_name = response2['results'][0]['address_components'][3]['short_name']
@@ -44,6 +45,8 @@ post '/results' do
   @currentSummary = forecast.currently.summary
   @currentTemp = forecast.currently.temperature
   @daySummary = forecast.hourly.summary
+  @condition = weather.condition
+  @icon_to_do = weather.icon_to_do(@condition)
   # @test = forecast.minutely.icon
   erb :results
 end
@@ -73,6 +76,8 @@ post '/results/zipcode' do
     @currentSummary = forecast.currently.summary
     @currentTemp = forecast.currently.temperature
     @daySummary = forecast.hourly.summary
+    @condition = weather.condition
+    @icon_to_do = weather.icon_to_do(@condition)
     # @test = forecast.minutely.icon
     erb :results
   end
