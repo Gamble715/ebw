@@ -99,7 +99,7 @@ post "/map/:event" do
   # can tweek would adjust amount of response - cool to change map size with # of responses 
   (0..9).collect do |index|
     if response2['results'] == []
-      @error = "There are no #{params[:event].gsub('_', ' ')}s near your location."
+      @error = "There are no #{params[:event].gsub('_', ' ')}s near your location. Try out another activity!"
     end
     if response2['results'][index]
       @name = response2['results'][index]['name']
